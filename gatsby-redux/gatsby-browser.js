@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+import Provider from "./src/Provider"
+
+export const wrapRootElement = Provider
