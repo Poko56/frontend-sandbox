@@ -1,11 +1,11 @@
-import React from 'react'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
+import React from "react"
+import { createStore, applyMiddleware } from "redux"
+import { Provider } from "react-redux"
 
-import Counter from './components/Counter'
-import { logger } from './middlewares'
-import reducers from './reducers'
-import './styles.css'
+import Counter from "./components/Counter"
+import { logger } from "./middlewares"
+import reducers from "./reducers"
+import "./styles.css"
 
 const middlewares = applyMiddleware(logger)
 const store = createStore(reducers, middlewares)

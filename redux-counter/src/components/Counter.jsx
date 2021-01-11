@@ -1,6 +1,6 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { increment, decrement, reset } from '../actions'
+import React from "react"
+import { connect } from "react-redux"
+import { increment, decrement, reset } from "../actions"
 
 function Counter({ value, increment, decrement, reset }) {
   return (
@@ -21,8 +21,8 @@ function Counter({ value, increment, decrement, reset }) {
   )
 }
 
-const mapStateToProps = (state) => ({ value: state.counter.value })
+const mapStateToProps = state => ({ value: state.counter.value })
 
 export default connect(mapStateToProps, { increment, decrement, reset })(
-  Counter,
+  Counter
 )
