@@ -3,6 +3,7 @@ import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
 
 import Counter from "./components/Counter"
+import HooksCounter from "./components/HooksCounter"
 import { logger } from "./middlewares"
 import reducers from "./reducers"
 import "./styles.css"
@@ -16,6 +17,8 @@ export default function App() {
       <div className="App">
         <h1>Redux Counter</h1>
         <Counter />
+        <hr style={{ margin: "5rem" }} />
+        <HooksCounter />
       </div>
     </Provider>
   )
