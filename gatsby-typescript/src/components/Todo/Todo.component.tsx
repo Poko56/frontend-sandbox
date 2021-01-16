@@ -1,24 +1,7 @@
 import React, { useState, useReducer } from "react"
 
-type Action = { type: "add"; text: string } | { type: "remove"; idx: number }
-
-interface TodoItemProps {
-  text: string
-  isComplete: boolean
-}
-
-type State = TodoItemProps[]
-
-const TodoReducer = (state: State, action: Action) => {
-  switch (action.type) {
-    case "add":
-      return [...state, { text: action.text, isComplete: false }]
-    case "remove":
-      return state.filter((_, i) => action.idx !== i)
-    default:
-      return state
-  }
-}
+import TodoReducer from "./Todo.reducer"
+import type { TodoItemProps, TodoListProps } from "./Todo.types"
 
 const Todo: React.FC = () => {
   const [inputText, setInputText] = useState<string>("")
@@ -29,12 +12,12 @@ const Todo: React.FC = () => {
     if (!inputText) {
       return
     }
-    dispatch({ type: "add", text: inputText })
+    dispatch({ type: "ADD", text: inputText })
     setInputText("")
   }
 
   function removeItem(idx: number): void {
-    dispatch({ type: "remove", idx: idx })
+    dispatch({ type: "REMOVE", idx: idx })
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -53,11 +36,6 @@ const Todo: React.FC = () => {
       <TodoList todos={todos} removeItem={removeItem} />
     </div>
   )
-}
-
-interface TodoListProps {
-  todos: State
-  removeItem: (idx: number) => void
 }
 
 const TodoList: React.FC<TodoListProps> = ({ todos, removeItem }) => {
