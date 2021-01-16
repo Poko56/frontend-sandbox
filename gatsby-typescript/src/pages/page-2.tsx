@@ -3,7 +3,7 @@ import { Link, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Todo from "../components/Todo"
+import Todo from "../components/Todo/Todo.component"
 
 const SecondPage: React.FC<PageProps> = ({ path }) => (
   <Layout>
